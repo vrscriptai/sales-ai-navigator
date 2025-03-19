@@ -120,12 +120,6 @@ export const Presentation = () => {
           <div className="max-w-6xl mx-auto w-full">
             <div className="flex flex-col items-center justify-center min-h-[80vh]">
               <div className="overflow-hidden">
-                <div className="text-sm uppercase tracking-wider text-brand-gray-500 mb-2 animate-slide-down">
-                  Представляем
-                </div>
-              </div>
-              
-              <div className="overflow-hidden">
                 <h1 className="text-5xl md:text-7xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-brand-purple animate-slide-down animate-delay-100">
                   Script<span className="text-brand-gray-800">AI</span>
                 </h1>
