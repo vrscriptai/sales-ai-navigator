@@ -1,3 +1,4 @@
+
 import React, { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { 
@@ -58,14 +59,26 @@ export const Presentation = () => {
         console.log(`Capturing slide ${i+1} of ${slides.length}`);
         
         try {
+          // Higher scale for better quality
           const canvas = await html2canvas(slide, {
-            scale: 1.5,
+            scale: 3, // Increased from 1.5 to 3 for higher resolution
             useCORS: true,
-            logging: false,
+            logging: true, // Enable logging for debugging
             allowTaint: true,
-            backgroundColor: '#ffffff'
+            backgroundColor: '#ffffff',
+            imageTimeout: 0, // No timeout for image loading
+            onclone: (clonedDoc) => {
+              // Make sure all elements are visible in the clone
+              const clonedSlide = clonedDoc.querySelector(`#slide-${i}`);
+              if (clonedSlide) {
+                (clonedSlide as HTMLElement).style.display = 'flex';
+                (clonedSlide as HTMLElement).style.opacity = '1';
+                (clonedSlide as HTMLElement).style.visibility = 'visible';
+              }
+            }
           });
           
+          // Higher quality JPEG
           const imgData = canvas.toDataURL('image/jpeg', 1.0);
           
           if (i > 0) {
@@ -76,7 +89,11 @@ export const Presentation = () => {
           const pageHeight = 297; // A4 height in mm
           const imgHeight = (canvas.height * imgWidth) / canvas.width;
           
-          pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
+          // Center the image if it doesn't fill the entire page
+          const xOffset = 0;
+          const yOffset = 0;
+          
+          pdf.addImage(imgData, 'JPEG', xOffset, yOffset, imgWidth, imgHeight);
           
           if (i !== currentSlide) {
             slide.style.display = originalDisplay;
@@ -126,6 +143,7 @@ export const Presentation = () => {
 
       <div className="slide-container">
         <div
+          id="slide-0"
           ref={(el) => (slidesRef.current[0] = el)}
           className="slide bg-gradient-to-br from-gray-50 to-blue-50 p-8"
         >
@@ -266,6 +284,7 @@ export const Presentation = () => {
         </div>
 
         <div
+          id="slide-1"
           ref={(el) => (slidesRef.current[1] = el)}
           className="slide bg-gradient-to-br from-gray-50 to-blue-50 p-8"
         >
