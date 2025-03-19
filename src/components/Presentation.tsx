@@ -52,33 +52,45 @@ export const Presentation = () => {
         const slide = slides[i];
         if (!slide) continue;
         
+        const originalDisplay = slide.style.display;
         slide.style.display = 'flex';
         
-        const canvas = await html2canvas(slide, {
-          scale: 2,
-          useCORS: true,
-          logging: false
-        });
+        console.log(`Capturing slide ${i+1} of ${slides.length}`);
         
-        const imgData = canvas.toDataURL('image/jpeg', 1.0);
-        
-        if (i > 0) {
-          pdf.addPage();
-        }
-        
-        const imgWidth = 210;
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
-        
-        pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
-        
-        if (i !== currentSlide) {
-          slide.style.display = '';
+        try {
+          const canvas = await html2canvas(slide, {
+            scale: 1.5,
+            useCORS: true,
+            logging: false,
+            allowTaint: true,
+            backgroundColor: '#ffffff'
+          });
+          
+          const imgData = canvas.toDataURL('image/jpeg', 1.0);
+          
+          if (i > 0) {
+            pdf.addPage();
+          }
+          
+          const imgWidth = 210; // A4 width in mm
+          const pageHeight = 297; // A4 height in mm
+          const imgHeight = (canvas.height * imgWidth) / canvas.width;
+          
+          pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
+          
+          if (i !== currentSlide) {
+            slide.style.display = originalDisplay;
+          }
+        } catch (slideError) {
+          console.error(`Error capturing slide ${i+1}:`, slideError);
         }
       }
       
+      console.log('PDF generated successfully, saving...');
       pdf.save('Script-AI-Presentation.pdf');
     } catch (error) {
       console.error('Error generating PDF:', error);
+      alert('Произошла ошибка при создании PDF. Пожалуйста, попробуйте еще раз.');
     } finally {
       setIsGenerating(false);
     }
@@ -108,7 +120,7 @@ export const Presentation = () => {
           disabled={isGenerating}
           className="rounded-full glass-card bg-brand-blue hover:bg-blue-600 text-white border-none px-6"
         >
-          {isGenerating ? 'Generating...' : 'Download PDF'}
+          {isGenerating ? 'Генерация...' : 'Скачать PDF'}
         </Button>
       </div>
 
