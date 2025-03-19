@@ -12,7 +12,10 @@ import {
   TrendingUp,
   PersonStanding,
   Settings,
-  Star
+  Star,
+  BarChart3,
+  LineChart,
+  PieChart
 } from 'lucide-react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
@@ -172,6 +175,42 @@ export const Presentation = () => {
                 </div>
               </div>
               
+              {/* Added new section for analytics */}
+              <div className="glass-card rounded-2xl p-6 w-full mb-16 animate-fade-in">
+                <h3 className="text-2xl font-medium mb-6 text-center">Автоматическая аналитика</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="feature-icon mb-4">
+                      <BarChart3 size={24} />
+                    </div>
+                    <h4 className="text-lg font-medium mb-2">Графики в режиме реального времени</h4>
+                    <p className="text-brand-gray-600">
+                      Динамические графики с обновлением по мере поступления новых данных
+                    </p>
+                  </div>
+                  
+                  <div className="flex flex-col items-center text-center">
+                    <div className="feature-icon mb-4">
+                      <LineChart size={24} />
+                    </div>
+                    <h4 className="text-lg font-medium mb-2">Детальные отчеты</h4>
+                    <p className="text-brand-gray-600">
+                      Автоматическое формирование отчетов по ключевым показателям продаж
+                    </p>
+                  </div>
+                  
+                  <div className="flex flex-col items-center text-center">
+                    <div className="feature-icon mb-4">
+                      <PieChart size={24} />
+                    </div>
+                    <h4 className="text-lg font-medium mb-2">Умные рекомендации</h4>
+                    <p className="text-brand-gray-600">
+                      Персонализированные советы для улучшения стратегии продаж
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
               <div className="glass-card rounded-2xl p-8 w-full max-w-4xl animate-slide-up">
                 <h3 className="text-2xl font-medium mb-6 text-center">Как это работает?</h3>
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
@@ -262,6 +301,10 @@ export const Presentation = () => {
                       <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
                       <span>Аналитика адаптируется под задачи отдела (например, акцент на конкурентов или этапы продаж)</span>
                     </li>
+                    <li>
+                      <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
+                      <span>Автоматические уведомления о критических моментах в реальном времени</span>
+                    </li>
                   </ul>
                 </div>
                 
@@ -279,6 +322,10 @@ export const Presentation = () => {
                     <li>
                       <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
                       <span>30 000 ₽/3000 минут звонков</span>
+                    </li>
+                    <li>
+                      <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
+                      <span>Доступ к расширенной аналитике и дашбордам в режиме реального времени</span>
                     </li>
                   </ul>
                 </div>
