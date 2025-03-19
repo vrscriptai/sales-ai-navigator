@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { 
@@ -53,7 +52,6 @@ export const Presentation = () => {
         const slide = slides[i];
         if (!slide) continue;
         
-        // Force each slide to be visible before capturing
         slide.style.display = 'flex';
         
         const canvas = await html2canvas(slide, {
@@ -64,18 +62,15 @@ export const Presentation = () => {
         
         const imgData = canvas.toDataURL('image/jpeg', 1.0);
         
-        // First page doesn't need addPage
         if (i > 0) {
           pdf.addPage();
         }
         
-        // Calculate aspect ratio to fit on A4 page
-        const imgWidth = 210; // A4 width in mm
+        const imgWidth = 210;
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
         
         pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
         
-        // Reset display if needed
         if (i !== currentSlide) {
           slide.style.display = '';
         }
@@ -118,7 +113,6 @@ export const Presentation = () => {
       </div>
 
       <div className="slide-container">
-        {/* Slide 1 */}
         <div
           ref={(el) => (slidesRef.current[0] = el)}
           className="slide bg-gradient-to-br from-gray-50 to-blue-50 p-8"
@@ -150,7 +144,7 @@ export const Presentation = () => {
                   </div>
                   <h3 className="text-xl font-medium mb-3">Интеграция с CRM</h3>
                   <p className="text-brand-gray-600">
-                    Автоматическое обновление карточек клиентов через API
+                    Автоматическое обновление карточек клиентов
                   </p>
                 </div>
                 
@@ -160,7 +154,7 @@ export const Presentation = () => {
                   </div>
                   <h3 className="text-xl font-medium mb-3">Транскрибация</h3>
                   <p className="text-brand-gray-600">
-                    Преобразование звонков в текст с последующим анализом
+                    Преобразование звонков в текст с анализом
                   </p>
                 </div>
                 
@@ -170,12 +164,11 @@ export const Presentation = () => {
                   </div>
                   <h3 className="text-xl font-medium mb-3">AI-анализ</h3>
                   <p className="text-brand-gray-600">
-                    Оценка этапов продаж, возражений, упоминаний конкурентов
+                    Оценка этапов продаж и работы с возражениями
                   </p>
                 </div>
               </div>
               
-              {/* Added new section for analytics */}
               <div className="glass-card rounded-2xl p-6 w-full mb-16 animate-fade-in">
                 <h3 className="text-2xl font-medium mb-6 text-center">Автоматическая аналитика</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -183,9 +176,9 @@ export const Presentation = () => {
                     <div className="feature-icon mb-4">
                       <BarChart3 size={24} />
                     </div>
-                    <h4 className="text-lg font-medium mb-2">Графики в режиме реального времени</h4>
+                    <h4 className="text-lg font-medium mb-2">Графики в реальном времени</h4>
                     <p className="text-brand-gray-600">
-                      Динамические графики с обновлением по мере поступления новых данных
+                      Динамические графики с постоянным обновлением
                     </p>
                   </div>
                   
@@ -193,9 +186,9 @@ export const Presentation = () => {
                     <div className="feature-icon mb-4">
                       <LineChart size={24} />
                     </div>
-                    <h4 className="text-lg font-medium mb-2">Детальные отчеты</h4>
+                    <h4 className="text-lg font-medium mb-2">Отчеты</h4>
                     <p className="text-brand-gray-600">
-                      Автоматическое формирование отчетов по ключевым показателям продаж
+                      Автоматическое формирование по ключевым метрикам
                     </p>
                   </div>
                   
@@ -203,9 +196,9 @@ export const Presentation = () => {
                     <div className="feature-icon mb-4">
                       <PieChart size={24} />
                     </div>
-                    <h4 className="text-lg font-medium mb-2">Умные рекомендации</h4>
+                    <h4 className="text-lg font-medium mb-2">Рекомендации</h4>
                     <p className="text-brand-gray-600">
-                      Персонализированные советы для улучшения стратегии продаж
+                      Персонализированные советы для улучшения продаж
                     </p>
                   </div>
                 </div>
@@ -266,7 +259,6 @@ export const Presentation = () => {
           </div>
         </div>
 
-        {/* Slide 2 */}
         <div
           ref={(el) => (slidesRef.current[1] = el)}
           className="slide bg-gradient-to-br from-gray-50 to-blue-50 p-8"
@@ -295,15 +287,15 @@ export const Presentation = () => {
                   <ul className="list-check">
                     <li>
                       <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
-                      <span>Персональное сопровождение, обратная связь, доработки алгоритмов под ваш бизнес</span>
+                      <span>Персональное сопровождение и доработки под ваш бизнес</span>
                     </li>
                     <li>
                       <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
-                      <span>Аналитика адаптируется под задачи отдела (например, акцент на конкурентов или этапы продаж)</span>
+                      <span>Аналитика адаптируется под задачи отдела</span>
                     </li>
                     <li>
                       <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
-                      <span>Автоматические уведомления о критических моментах в реальном времени</span>
+                      <span>Автоматические уведомления о критических моментах</span>
                     </li>
                   </ul>
                 </div>
@@ -325,7 +317,7 @@ export const Presentation = () => {
                     </li>
                     <li>
                       <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
-                      <span>Доступ к расширенной аналитике и дашбордам в режиме реального времени</span>
+                      <span>Доступ к расширенной аналитике и дашбордам</span>
                     </li>
                   </ul>
                 </div>
@@ -341,16 +333,14 @@ export const Presentation = () => {
                   <p className="text-3xl font-bold text-brand-blue">
                     +15-30% к выполнению плана
                   </p>
-                  <p className="text-brand-gray-600 mt-2">
-                    (по данным пилотных клиентов)
-                  </p>
                 </div>
                 
                 <div className="text-center">
-                  <p className="text-xl mb-6">Хотите такие же цифры?</p>
-                  <Button className="rounded-full bg-brand-blue hover:bg-blue-600 text-white px-8 py-6 text-lg">
-                    Записаться на демо
-                  </Button>
+                  <p className="text-xl mb-6">Свяжитесь со мной:</p>
+                  <div className="flex flex-col items-center">
+                    <h4 className="text-xl font-medium">Ряснов Виктор</h4>
+                    <a href="tel:+79150862516" className="text-brand-blue hover:underline mt-2">+7 (915) 086-25-16</a>
+                  </div>
                 </div>
               </div>
             </div>
