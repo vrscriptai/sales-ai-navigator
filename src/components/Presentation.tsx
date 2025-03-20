@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { 
@@ -17,14 +16,11 @@ import {
   LineChart,
   PieChart
 } from 'lucide-react';
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
 
 export const Presentation = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slidesRef = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isGenerating, setIsGenerating] = useState(false);
 
   const handleNextSlide = () => {
     if (currentSlide < 1) {
@@ -37,79 +33,6 @@ export const Presentation = () => {
     if (currentSlide > 0) {
       setCurrentSlide(currentSlide - 1);
       slidesRef.current[currentSlide - 1]?.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const generatePDF = async () => {
-    if (!containerRef.current) return;
-    
-    setIsGenerating(true);
-    
-    try {
-      const pdf = new jsPDF('p', 'mm', 'a4', true);
-      const slides = slidesRef.current.filter(Boolean);
-      
-      for (let i = 0; i < slides.length; i++) {
-        const slide = slides[i];
-        if (!slide) continue;
-        
-        const originalDisplay = slide.style.display;
-        slide.style.display = 'flex';
-        
-        console.log(`Capturing slide ${i+1} of ${slides.length}`);
-        
-        try {
-          // Higher scale for better quality
-          const canvas = await html2canvas(slide, {
-            scale: 3, // Increased from 1.5 to 3 for higher resolution
-            useCORS: true,
-            logging: true, // Enable logging for debugging
-            allowTaint: true,
-            backgroundColor: '#ffffff',
-            imageTimeout: 0, // No timeout for image loading
-            onclone: (clonedDoc) => {
-              // Make sure all elements are visible in the clone
-              const clonedSlide = clonedDoc.querySelector(`#slide-${i}`);
-              if (clonedSlide) {
-                (clonedSlide as HTMLElement).style.display = 'flex';
-                (clonedSlide as HTMLElement).style.opacity = '1';
-                (clonedSlide as HTMLElement).style.visibility = 'visible';
-              }
-            }
-          });
-          
-          // Higher quality JPEG
-          const imgData = canvas.toDataURL('image/jpeg', 1.0);
-          
-          if (i > 0) {
-            pdf.addPage();
-          }
-          
-          const imgWidth = 210; // A4 width in mm
-          const pageHeight = 297; // A4 height in mm
-          const imgHeight = (canvas.height * imgWidth) / canvas.width;
-          
-          // Center the image if it doesn't fill the entire page
-          const xOffset = 0;
-          const yOffset = 0;
-          
-          pdf.addImage(imgData, 'JPEG', xOffset, yOffset, imgWidth, imgHeight);
-          
-          if (i !== currentSlide) {
-            slide.style.display = originalDisplay;
-          }
-        } catch (slideError) {
-          console.error(`Error capturing slide ${i+1}:`, slideError);
-        }
-      }
-      
-      console.log('PDF generated successfully, saving...');
-      pdf.save('Script-AI-Presentation.pdf');
-    } catch (error) {
-      console.error('Error generating PDF:', error);
-      alert('Произошла ошибка при создании PDF. Пожалуйста, попробуйте еще раз.');
-    } finally {
-      setIsGenerating(false);
     }
   };
 
@@ -131,13 +54,6 @@ export const Presentation = () => {
           disabled={currentSlide === 1}
         >
           <ArrowDown className="rotate-270" />
-        </Button>
-        <Button
-          onClick={generatePDF}
-          disabled={isGenerating}
-          className="rounded-full glass-card bg-brand-blue hover:bg-blue-600 text-white border-none px-6"
-        >
-          {isGenerating ? 'Генерация...' : 'Скачать PDF'}
         </Button>
       </div>
 
@@ -312,7 +228,7 @@ export const Presentation = () => {
                   <ul className="list-check">
                     <li>
                       <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
-                      <span>Персональное сопровождение и доработки под ваш бизнес</span>
+                      <span>Персональное сопровождение и доработ��и под ваш бизнес</span>
                     </li>
                     <li>
                       <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
