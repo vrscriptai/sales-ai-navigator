@@ -5,17 +5,17 @@ import {
   ArrowRight, 
   ArrowDown, 
   CheckCircle2, 
-  Phone, 
-  FileText, 
-  Brain, 
-  Database, 
-  TrendingUp,
-  PersonStanding,
-  Settings,
+  Map, 
+  Camera, 
+  Compass, 
+  Plane,
+  Mountain,
+  Bird,
+  Globe,
   Star,
-  BarChart3,
-  LineChart,
-  PieChart
+  Sunrise,
+  MapPin,
+  Hotel
 } from 'lucide-react';
 
 export const Presentation = () => {
@@ -62,84 +62,84 @@ export const Presentation = () => {
         <div
           id="slide-0"
           ref={(el) => (slidesRef.current[0] = el)}
-          className="slide bg-gradient-to-br from-blue-50 to-gray-100 p-8"
+          className="slide bg-gradient-to-br from-emerald-50 to-teal-100 p-8"
         >
           <div className="max-w-6xl mx-auto w-full">
             <div className="flex flex-col items-center justify-center min-h-[80vh]">
               <div className="overflow-hidden">
                 <h1 className="text-5xl md:text-7xl font-bold text-center mb-8 text-gradient animate-slide-down animate-delay-100">
-                  Script<span className="text-brand-blue">AI</span>
+                  Путешествия с <span className="text-emerald-600">Птицей</span>
                 </h1>
               </div>
               
               <div className="overflow-hidden">
                 <h2 className="text-2xl md:text-3xl font-medium text-gray-700 text-center mb-12 animate-slide-down animate-delay-200">
-                  AI-агент для отдела продаж: Анализ звонков → Рост прибыли
+                  Откройте мир вместе с нами: Природа, Приключения, Впечатления
                 </h2>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 w-full">
                 <div className="glass-card rounded-2xl p-6 animate-fade-in animate-delay-300">
                   <div className="feature-icon mb-4">
-                    <Database size={24} />
+                    <Mountain size={24} />
                   </div>
-                  <h3 className="text-xl font-medium mb-3 text-gray-800">Интеграция с CRM</h3>
+                  <h3 className="text-xl font-medium mb-3 text-gray-800">Уникальные маршруты</h3>
                   <p className="text-gray-600">
-                    Автоматическое обновление карточек клиентов
+                    Нестандартные путешествия по особенным местам
                   </p>
                 </div>
                 
                 <div className="glass-card rounded-2xl p-6 animate-fade-in animate-delay-400">
                   <div className="feature-icon mb-4">
-                    <FileText size={24} />
+                    <Camera size={24} />
                   </div>
-                  <h3 className="text-xl font-medium mb-3 text-gray-800">Транскрибация</h3>
+                  <h3 className="text-xl font-medium mb-3 text-gray-800">Фотографии</h3>
                   <p className="text-gray-600">
-                    Преобразование звонков в текст с анализом
+                    Профессиональные снимки в самых живописных локациях
                   </p>
                 </div>
                 
                 <div className="glass-card rounded-2xl p-6 animate-fade-in animate-delay-500">
                   <div className="feature-icon mb-4">
-                    <Brain size={24} />
+                    <Compass size={24} />
                   </div>
-                  <h3 className="text-xl font-medium mb-3 text-gray-800">AI-анализ</h3>
+                  <h3 className="text-xl font-medium mb-3 text-gray-800">Экспертные гиды</h3>
                   <p className="text-gray-600">
-                    Оценка этапов продаж и работы с возражениями
+                    Знатоки местной природы и культуры
                   </p>
                 </div>
               </div>
               
               <div className="glass-card rounded-2xl p-6 w-full mb-16 animate-fade-in">
-                <h3 className="text-2xl font-medium mb-6 text-center text-gray-800">Автоматическая аналитика</h3>
+                <h3 className="text-2xl font-medium mb-6 text-center text-gray-800">Наши направления</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="flex flex-col items-center text-center transition-all duration-300 hover:transform hover:translate-y-[-5px]">
                     <div className="feature-icon mb-4">
-                      <BarChart3 size={24} />
+                      <Sunrise size={24} />
                     </div>
-                    <h4 className="text-lg font-medium mb-2 text-gray-800">Графики в реальном времени</h4>
+                    <h4 className="text-lg font-medium mb-2 text-gray-800">Восточная Азия</h4>
                     <p className="text-gray-600">
-                      Динамические графики с постоянным обновлением
+                      Япония, Корея, Тайвань — страны восходящего солнца
                     </p>
                   </div>
                   
                   <div className="flex flex-col items-center text-center transition-all duration-300 hover:transform hover:translate-y-[-5px]">
                     <div className="feature-icon mb-4">
-                      <LineChart size={24} />
+                      <Mountain size={24} />
                     </div>
-                    <h4 className="text-lg font-medium mb-2 text-gray-800">Отчеты</h4>
+                    <h4 className="text-lg font-medium mb-2 text-gray-800">Скандинавия</h4>
                     <p className="text-gray-600">
-                      Автоматическое формирование по ключевым метрикам
+                      Норвегия, Швеция, Исландия — мир фьордов и северного сияния
                     </p>
                   </div>
                   
                   <div className="flex flex-col items-center text-center transition-all duration-300 hover:transform hover:translate-y-[-5px]">
                     <div className="feature-icon mb-4">
-                      <PieChart size={24} />
+                      <Globe size={24} />
                     </div>
-                    <h4 className="text-lg font-medium mb-2 text-gray-800">Рекомендации</h4>
+                    <h4 className="text-lg font-medium mb-2 text-gray-800">Латинская Америка</h4>
                     <p className="text-gray-600">
-                      Персонализированные советы для улучшения продаж
+                      Перу, Чили, Эквадор — от джунглей до ледников
                     </p>
                   </div>
                 </div>
@@ -149,50 +149,50 @@ export const Presentation = () => {
                 <h3 className="text-2xl font-medium mb-6 text-center text-gray-800">Как это работает?</h3>
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                   <div className="text-center">
-                    <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle workflow-icon">
-                      <Phone className="text-brand-blue" />
+                    <div className="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle workflow-icon">
+                      <Globe className="text-emerald-600" />
                     </div>
-                    <p className="text-sm text-gray-600">Звонок</p>
+                    <p className="text-sm text-gray-600">Выбор направления</p>
                   </div>
                   
                   <ArrowRight className="hidden md:block text-gray-400" />
                   <ArrowDown className="block md:hidden text-gray-400" />
                   
                   <div className="text-center">
-                    <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-100 workflow-icon">
-                      <FileText className="text-brand-blue" />
+                    <div className="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-100 workflow-icon">
+                      <MapPin className="text-emerald-600" />
                     </div>
-                    <p className="text-sm text-gray-600">Текст</p>
+                    <p className="text-sm text-gray-600">Планирование</p>
                   </div>
                   
                   <ArrowRight className="hidden md:block text-gray-400" />
                   <ArrowDown className="block md:hidden text-gray-400" />
                   
                   <div className="text-center">
-                    <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-200 workflow-icon">
-                      <Brain className="text-brand-blue" />
+                    <div className="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-200 workflow-icon">
+                      <Plane className="text-emerald-600" />
                     </div>
-                    <p className="text-sm text-gray-600">AI-анализ</p>
+                    <p className="text-sm text-gray-600">Путешествие</p>
                   </div>
                   
                   <ArrowRight className="hidden md:block text-gray-400" />
                   <ArrowDown className="block md:hidden text-gray-400" />
                   
                   <div className="text-center">
-                    <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-300 workflow-icon">
-                      <Database className="text-brand-blue" />
+                    <div className="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-300 workflow-icon">
+                      <Hotel className="text-emerald-600" />
                     </div>
-                    <p className="text-sm text-gray-600">Данные в CRM</p>
+                    <p className="text-sm text-gray-600">Проживание</p>
                   </div>
                   
                   <ArrowRight className="hidden md:block text-gray-400" />
                   <ArrowDown className="block md:hidden text-gray-400" />
                   
                   <div className="text-center">
-                    <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-400 workflow-icon">
-                      <TrendingUp className="text-brand-blue" />
+                    <div className="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-400 workflow-icon">
+                      <Camera className="text-emerald-600" />
                     </div>
-                    <p className="text-sm text-gray-600">Рост продаж</p>
+                    <p className="text-sm text-gray-600">Впечатления</p>
                   </div>
                 </div>
               </div>
@@ -203,63 +203,63 @@ export const Presentation = () => {
         <div
           id="slide-1"
           ref={(el) => (slidesRef.current[1] = el)}
-          className="slide bg-gradient-to-br from-blue-50 to-gray-100 p-8"
+          className="slide bg-gradient-to-br from-emerald-50 to-teal-100 p-8"
         >
           <div className="max-w-6xl mx-auto w-full">
             <div className="flex flex-col items-center justify-center min-h-[80vh]">
               <div className="overflow-hidden mb-8">
                 <h2 className="text-4xl md:text-6xl font-bold text-center animate-slide-down text-gradient">
-                  Почему <span className="text-brand-blue">Script</span>?
+                  Почему <span className="text-emerald-600">с Птицей</span>?
                 </h2>
               </div>
               
               <div className="overflow-hidden">
                 <p className="text-xl md:text-2xl text-center text-gray-700 mb-12 animate-slide-down animate-delay-100">
-                  Кастомизация + Поддержка = Ваши рекорды
+                  Индивидуальный подход + Забота о природе = Незабываемые впечатления
                 </p>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 w-full">
                 <div className="glass-card rounded-2xl p-8 animate-fade-in animate-delay-200">
                   <div className="flex items-center gap-3 mb-6">
-                    <PersonStanding className="text-brand-blue" size={28} />
-                    <h3 className="text-2xl font-medium text-gray-800">Не просто инструмент, а партнер</h3>
+                    <Bird className="text-emerald-600" size={28} />
+                    <h3 className="text-2xl font-medium text-gray-800">Этичный туризм</h3>
                   </div>
                   
                   <ul className="list-check">
                     <li>
-                      <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
-                      <span className="text-gray-600">Персональное сопровождение и доработки под ваш бизнес</span>
+                      <CheckCircle2 className="text-emerald-600 flex-shrink-0 mt-1" size={20} />
+                      <span className="text-gray-600">Минимальное воздействие на природу и местные сообщества</span>
                     </li>
                     <li>
-                      <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
-                      <span className="text-gray-600">Аналитика адаптируется под задачи отдела</span>
+                      <CheckCircle2 className="text-emerald-600 flex-shrink-0 mt-1" size={20} />
+                      <span className="text-gray-600">Поддержка локальных проектов по защите экосистем</span>
                     </li>
                     <li>
-                      <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
-                      <span className="text-gray-600">Автоматические уведомления о критических моментах</span>
+                      <CheckCircle2 className="text-emerald-600 flex-shrink-0 mt-1" size={20} />
+                      <span className="text-gray-600">Маленькие группы для максимального комфорта</span>
                     </li>
                   </ul>
                 </div>
                 
                 <div className="glass-card rounded-2xl p-8 animate-fade-in animate-delay-300">
                   <div className="flex items-center gap-3 mb-6">
-                    <Settings className="text-brand-blue" size={28} />
-                    <h3 className="text-2xl font-medium text-gray-800">Гибкая подписка</h3>
+                    <Map className="text-emerald-600" size={28} />
+                    <h3 className="text-2xl font-medium text-gray-800">Гибкие варианты туров</h3>
                   </div>
                   
                   <ul className="list-check">
                     <li>
-                      <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
-                      <span className="text-gray-600">5 000 ₽/менеджер в месяц</span>
+                      <CheckCircle2 className="text-emerald-600 flex-shrink-0 mt-1" size={20} />
+                      <span className="text-gray-600">От 35 000 ₽ за 7-дневный тур</span>
                     </li>
                     <li>
-                      <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
-                      <span className="text-gray-600">30 000 ₽/3000 минут звонков</span>
+                      <CheckCircle2 className="text-emerald-600 flex-shrink-0 mt-1" size={20} />
+                      <span className="text-gray-600">90 000 ₽ за двухнедельное путешествие</span>
                     </li>
                     <li>
-                      <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
-                      <span className="text-gray-600">Доступ к расширенной аналитике и дашбордам</span>
+                      <CheckCircle2 className="text-emerald-600 flex-shrink-0 mt-1" size={20} />
+                      <span className="text-gray-600">Индивидуальные программы под ваши интересы</span>
                     </li>
                   </ul>
                 </div>
@@ -267,21 +267,21 @@ export const Presentation = () => {
               
               <div className="glass-card rounded-2xl p-8 w-full max-w-4xl animate-slide-up animate-delay-400">
                 <div className="flex items-center justify-center gap-4 mb-6">
-                  <Star className="text-brand-blue" size={28} />
-                  <h3 className="text-2xl font-medium text-gray-800">Результат</h3>
+                  <Star className="text-emerald-600" size={28} />
+                  <h3 className="text-2xl font-medium text-gray-800">Наши преимущества</h3>
                 </div>
                 
                 <div className="text-center mb-8">
-                  <p className="text-3xl font-bold text-brand-blue hover:text-gray-800 transition-colors duration-300">
-                    +15-30% к выполнению плана
+                  <p className="text-3xl font-bold text-emerald-600 hover:text-gray-800 transition-colors duration-300">
+                    5-летний опыт уникальных туров
                   </p>
                 </div>
                 
                 <div className="text-center">
-                  <p className="text-xl mb-6 text-gray-600">Свяжитесь со мной:</p>
+                  <p className="text-xl mb-6 text-gray-600">Свяжитесь с нами:</p>
                   <div className="flex flex-col items-center">
-                    <h4 className="text-xl font-medium text-gray-800">Ряснов Виктор</h4>
-                    <a href="tel:+79150862516" className="text-brand-blue hover:underline hover:text-gray-700 transition-colors duration-300 mt-2">+7 (915) 086-25-16</a>
+                    <h4 className="text-xl font-medium text-gray-800">Анна Птицына</h4>
+                    <a href="tel:+79150000000" className="text-emerald-600 hover:underline hover:text-gray-700 transition-colors duration-300 mt-2">+7 (915) 000-00-00</a>
                   </div>
                 </div>
               </div>

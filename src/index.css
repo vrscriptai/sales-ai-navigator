@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -16,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
     
-    --primary: 221.2 83.2% 53.3%;
+    --primary: 151 55% 41.8%;
     --primary-foreground: 0 0% 98%;
     
     --secondary: 240 4.8% 95.9%;
@@ -33,13 +33,13 @@
     
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
+    --ring: 142 71% 45%;
     
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 240 10% 3.9%;
-    --sidebar-primary: 221.2 83.2% 53.3%;
+    --sidebar-primary: 151 55% 41.8%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
@@ -50,11 +50,12 @@
 
 @layer base {
   * {
-    @apply border-border selection:bg-blue-500/20 selection:text-black;
+    @apply border-border selection:bg-emerald-500/20 selection:text-black;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
+    font-family: 'Montserrat', sans-serif;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
   }
 
@@ -63,11 +64,11 @@
   }
   
   .glass-card {
-    @apply bg-white/70 backdrop-blur-md border border-gray-200 shadow-md transition-all duration-300;
+    @apply bg-white/70 backdrop-blur-md border border-emerald-100 shadow-md transition-all duration-300;
   }
   
   .glass-card:hover {
-    @apply bg-white/90 border-blue-500/30 shadow-xl shadow-blue-500/10 transform scale-[1.02];
+    @apply bg-white/90 border-emerald-500/30 shadow-xl shadow-emerald-500/10 transform scale-[1.02];
   }
   
   .slide-container {
@@ -88,13 +89,13 @@
   }
 
   .feature-icon {
-    @apply text-brand-blue bg-blue-50 p-2 rounded-lg inline-flex items-center justify-center transition-all duration-300;
-    box-shadow: 0 0 20px rgba(70, 145, 255, 0.15);
+    @apply text-emerald-600 bg-emerald-50 p-2 rounded-lg inline-flex items-center justify-center transition-all duration-300;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
   }
   
   .glass-card:hover .feature-icon {
-    @apply bg-blue-100;
-    box-shadow: 0 0 30px rgba(70, 145, 255, 0.25);
+    @apply bg-emerald-100;
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.25);
   }
   
   .list-check li {
@@ -126,7 +127,7 @@
   }
   
   .neo-blur {
-    @apply backdrop-blur-xl bg-white/80 border border-gray-200;
+    @apply backdrop-blur-xl bg-white/80 border border-emerald-200;
   }
   
   .text-gradient {
