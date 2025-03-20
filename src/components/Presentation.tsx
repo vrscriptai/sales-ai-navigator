@@ -62,7 +62,7 @@ export const Presentation = () => {
         <div
           id="slide-0"
           ref={(el) => (slidesRef.current[0] = el)}
-          className="slide bg-gradient-to-br from-black to-gray-900 p-8"
+          className="slide bg-gradient-to-br from-blue-50 to-gray-100 p-8"
         >
           <div className="max-w-6xl mx-auto w-full">
             <div className="flex flex-col items-center justify-center min-h-[80vh]">
@@ -73,7 +73,7 @@ export const Presentation = () => {
               </div>
               
               <div className="overflow-hidden">
-                <h2 className="text-2xl md:text-3xl font-medium text-white text-center mb-12 animate-slide-down animate-delay-200">
+                <h2 className="text-2xl md:text-3xl font-medium text-gray-700 text-center mb-12 animate-slide-down animate-delay-200">
                   AI-агент для отдела продаж: Анализ звонков → Рост прибыли
                 </h2>
               </div>
@@ -83,8 +83,8 @@ export const Presentation = () => {
                   <div className="feature-icon mb-4">
                     <Database size={24} />
                   </div>
-                  <h3 className="text-xl font-medium mb-3 text-white">Интеграция с CRM</h3>
-                  <p className="text-gray-300">
+                  <h3 className="text-xl font-medium mb-3 text-gray-800">Интеграция с CRM</h3>
+                  <p className="text-gray-600">
                     Автоматическое обновление карточек клиентов
                   </p>
                 </div>
@@ -93,8 +93,8 @@ export const Presentation = () => {
                   <div className="feature-icon mb-4">
                     <FileText size={24} />
                   </div>
-                  <h3 className="text-xl font-medium mb-3 text-white">Транскрибация</h3>
-                  <p className="text-gray-300">
+                  <h3 className="text-xl font-medium mb-3 text-gray-800">Транскрибация</h3>
+                  <p className="text-gray-600">
                     Преобразование звонков в текст с анализом
                   </p>
                 </div>
@@ -103,22 +103,22 @@ export const Presentation = () => {
                   <div className="feature-icon mb-4">
                     <Brain size={24} />
                   </div>
-                  <h3 className="text-xl font-medium mb-3 text-white">AI-анализ</h3>
-                  <p className="text-gray-300">
+                  <h3 className="text-xl font-medium mb-3 text-gray-800">AI-анализ</h3>
+                  <p className="text-gray-600">
                     Оценка этапов продаж и работы с возражениями
                   </p>
                 </div>
               </div>
               
               <div className="glass-card rounded-2xl p-6 w-full mb-16 animate-fade-in">
-                <h3 className="text-2xl font-medium mb-6 text-center text-white">Автоматическая аналитика</h3>
+                <h3 className="text-2xl font-medium mb-6 text-center text-gray-800">Автоматическая аналитика</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="flex flex-col items-center text-center transition-all duration-300 hover:transform hover:translate-y-[-5px]">
                     <div className="feature-icon mb-4">
                       <BarChart3 size={24} />
                     </div>
-                    <h4 className="text-lg font-medium mb-2 text-white">Графики в реальном времени</h4>
-                    <p className="text-gray-300">
+                    <h4 className="text-lg font-medium mb-2 text-gray-800">Графики в реальном времени</h4>
+                    <p className="text-gray-600">
                       Динамические графики с постоянным обновлением
                     </p>
                   </div>
@@ -127,8 +127,8 @@ export const Presentation = () => {
                     <div className="feature-icon mb-4">
                       <LineChart size={24} />
                     </div>
-                    <h4 className="text-lg font-medium mb-2 text-white">Отчеты</h4>
-                    <p className="text-gray-300">
+                    <h4 className="text-lg font-medium mb-2 text-gray-800">Отчеты</h4>
+                    <p className="text-gray-600">
                       Автоматическое формирование по ключевым метрикам
                     </p>
                   </div>
@@ -137,8 +137,8 @@ export const Presentation = () => {
                     <div className="feature-icon mb-4">
                       <PieChart size={24} />
                     </div>
-                    <h4 className="text-lg font-medium mb-2 text-white">Рекомендации</h4>
-                    <p className="text-gray-300">
+                    <h4 className="text-lg font-medium mb-2 text-gray-800">Рекомендации</h4>
+                    <p className="text-gray-600">
                       Персонализированные советы для улучшения продаж
                     </p>
                   </div>
@@ -146,53 +146,53 @@ export const Presentation = () => {
               </div>
               
               <div className="glass-card rounded-2xl p-8 w-full max-w-4xl animate-slide-up">
-                <h3 className="text-2xl font-medium mb-6 text-center text-white">Как это работает?</h3>
+                <h3 className="text-2xl font-medium mb-6 text-center text-gray-800">Как это работает?</h3>
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                   <div className="text-center">
-                    <div className="w-16 h-16 rounded-full bg-blue-900/40 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle workflow-icon">
+                    <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle workflow-icon">
                       <Phone className="text-brand-blue" />
                     </div>
-                    <p className="text-sm text-gray-300">Звонок</p>
+                    <p className="text-sm text-gray-600">Звонок</p>
                   </div>
                   
-                  <ArrowRight className="hidden md:block text-gray-600" />
-                  <ArrowDown className="block md:hidden text-gray-600" />
+                  <ArrowRight className="hidden md:block text-gray-400" />
+                  <ArrowDown className="block md:hidden text-gray-400" />
                   
                   <div className="text-center">
-                    <div className="w-16 h-16 rounded-full bg-blue-900/40 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-100 workflow-icon">
+                    <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-100 workflow-icon">
                       <FileText className="text-brand-blue" />
                     </div>
-                    <p className="text-sm text-gray-300">Текст</p>
+                    <p className="text-sm text-gray-600">Текст</p>
                   </div>
                   
-                  <ArrowRight className="hidden md:block text-gray-600" />
-                  <ArrowDown className="block md:hidden text-gray-600" />
+                  <ArrowRight className="hidden md:block text-gray-400" />
+                  <ArrowDown className="block md:hidden text-gray-400" />
                   
                   <div className="text-center">
-                    <div className="w-16 h-16 rounded-full bg-blue-900/40 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-200 workflow-icon">
+                    <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-200 workflow-icon">
                       <Brain className="text-brand-blue" />
                     </div>
-                    <p className="text-sm text-gray-300">AI-анализ</p>
+                    <p className="text-sm text-gray-600">AI-анализ</p>
                   </div>
                   
-                  <ArrowRight className="hidden md:block text-gray-600" />
-                  <ArrowDown className="block md:hidden text-gray-600" />
+                  <ArrowRight className="hidden md:block text-gray-400" />
+                  <ArrowDown className="block md:hidden text-gray-400" />
                   
                   <div className="text-center">
-                    <div className="w-16 h-16 rounded-full bg-blue-900/40 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-300 workflow-icon">
+                    <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-300 workflow-icon">
                       <Database className="text-brand-blue" />
                     </div>
-                    <p className="text-sm text-gray-300">Данные в CRM</p>
+                    <p className="text-sm text-gray-600">Данные в CRM</p>
                   </div>
                   
-                  <ArrowRight className="hidden md:block text-gray-600" />
-                  <ArrowDown className="block md:hidden text-gray-600" />
+                  <ArrowRight className="hidden md:block text-gray-400" />
+                  <ArrowDown className="block md:hidden text-gray-400" />
                   
                   <div className="text-center">
-                    <div className="w-16 h-16 rounded-full bg-blue-900/40 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-400 workflow-icon">
+                    <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-400 workflow-icon">
                       <TrendingUp className="text-brand-blue" />
                     </div>
-                    <p className="text-sm text-gray-300">Рост продаж</p>
+                    <p className="text-sm text-gray-600">Рост продаж</p>
                   </div>
                 </div>
               </div>
@@ -203,7 +203,7 @@ export const Presentation = () => {
         <div
           id="slide-1"
           ref={(el) => (slidesRef.current[1] = el)}
-          className="slide bg-gradient-to-br from-black to-gray-900 p-8"
+          className="slide bg-gradient-to-br from-blue-50 to-gray-100 p-8"
         >
           <div className="max-w-6xl mx-auto w-full">
             <div className="flex flex-col items-center justify-center min-h-[80vh]">
@@ -214,7 +214,7 @@ export const Presentation = () => {
               </div>
               
               <div className="overflow-hidden">
-                <p className="text-xl md:text-2xl text-center text-gray-300 mb-12 animate-slide-down animate-delay-100">
+                <p className="text-xl md:text-2xl text-center text-gray-700 mb-12 animate-slide-down animate-delay-100">
                   Кастомизация + Поддержка = Ваши рекорды
                 </p>
               </div>
@@ -223,21 +223,21 @@ export const Presentation = () => {
                 <div className="glass-card rounded-2xl p-8 animate-fade-in animate-delay-200">
                   <div className="flex items-center gap-3 mb-6">
                     <PersonStanding className="text-brand-blue" size={28} />
-                    <h3 className="text-2xl font-medium text-white">Не просто инструмент, а партнер</h3>
+                    <h3 className="text-2xl font-medium text-gray-800">Не просто инструмент, а партнер</h3>
                   </div>
                   
                   <ul className="list-check">
                     <li>
                       <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
-                      <span className="text-gray-300">Персональное сопровождение и доработки под ваш бизнес</span>
+                      <span className="text-gray-600">Персональное сопровождение и доработки под ваш бизнес</span>
                     </li>
                     <li>
                       <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
-                      <span className="text-gray-300">Аналитика адаптируется под задачи отдела</span>
+                      <span className="text-gray-600">Аналитика адаптируется под задачи отдела</span>
                     </li>
                     <li>
                       <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
-                      <span className="text-gray-300">Автоматические уведомления о критических моментах</span>
+                      <span className="text-gray-600">Автоматические уведомления о критических моментах</span>
                     </li>
                   </ul>
                 </div>
@@ -245,21 +245,21 @@ export const Presentation = () => {
                 <div className="glass-card rounded-2xl p-8 animate-fade-in animate-delay-300">
                   <div className="flex items-center gap-3 mb-6">
                     <Settings className="text-brand-blue" size={28} />
-                    <h3 className="text-2xl font-medium text-white">Гибкая подписка</h3>
+                    <h3 className="text-2xl font-medium text-gray-800">Гибкая подписка</h3>
                   </div>
                   
                   <ul className="list-check">
                     <li>
                       <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
-                      <span className="text-gray-300">5 000 ₽/менеджер в месяц</span>
+                      <span className="text-gray-600">5 000 ₽/менеджер в месяц</span>
                     </li>
                     <li>
                       <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
-                      <span className="text-gray-300">30 000 ₽/3000 минут звонков</span>
+                      <span className="text-gray-600">30 000 ₽/3000 минут звонков</span>
                     </li>
                     <li>
                       <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
-                      <span className="text-gray-300">Доступ к расширенной аналитике и дашбордам</span>
+                      <span className="text-gray-600">Доступ к расширенной аналитике и дашбордам</span>
                     </li>
                   </ul>
                 </div>
@@ -268,20 +268,20 @@ export const Presentation = () => {
               <div className="glass-card rounded-2xl p-8 w-full max-w-4xl animate-slide-up animate-delay-400">
                 <div className="flex items-center justify-center gap-4 mb-6">
                   <Star className="text-brand-blue" size={28} />
-                  <h3 className="text-2xl font-medium text-white">Результат</h3>
+                  <h3 className="text-2xl font-medium text-gray-800">Результат</h3>
                 </div>
                 
                 <div className="text-center mb-8">
-                  <p className="text-3xl font-bold text-brand-blue hover:text-white transition-colors duration-300">
+                  <p className="text-3xl font-bold text-brand-blue hover:text-gray-800 transition-colors duration-300">
                     +15-30% к выполнению плана
                   </p>
                 </div>
                 
                 <div className="text-center">
-                  <p className="text-xl mb-6 text-gray-300">Свяжитесь со мной:</p>
+                  <p className="text-xl mb-6 text-gray-600">Свяжитесь со мной:</p>
                   <div className="flex flex-col items-center">
-                    <h4 className="text-xl font-medium text-white">Ряснов Виктор</h4>
-                    <a href="tel:+79150862516" className="text-brand-blue hover:underline hover:text-white transition-colors duration-300 mt-2">+7 (915) 086-25-16</a>
+                    <h4 className="text-xl font-medium text-gray-800">Ряснов Виктор</h4>
+                    <a href="tel:+79150862516" className="text-brand-blue hover:underline hover:text-gray-700 transition-colors duration-300 mt-2">+7 (915) 086-25-16</a>
                   </div>
                 </div>
               </div>
