@@ -228,7 +228,7 @@ export const Presentation = () => {
                   <ul className="list-check">
                     <li>
                       <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
-                      <span>Персональное сопровождение и доработ��и под ваш бизнес</span>
+                      <span>Персональное сопровождение и доработки под ваш бизнес</span>
                     </li>
                     <li>
                       <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-1" size={20} />
