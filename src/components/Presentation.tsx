@@ -113,7 +113,7 @@ export const Presentation = () => {
               <div className="glass-card rounded-2xl p-6 w-full mb-16 animate-fade-in">
                 <h3 className="text-2xl font-medium mb-6 text-center text-white">Автоматическая аналитика</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  <div className="flex flex-col items-center text-center">
+                  <div className="flex flex-col items-center text-center transition-all duration-300 hover:transform hover:translate-y-[-5px]">
                     <div className="feature-icon mb-4">
                       <BarChart3 size={24} />
                     </div>
@@ -123,7 +123,7 @@ export const Presentation = () => {
                     </p>
                   </div>
                   
-                  <div className="flex flex-col items-center text-center">
+                  <div className="flex flex-col items-center text-center transition-all duration-300 hover:transform hover:translate-y-[-5px]">
                     <div className="feature-icon mb-4">
                       <LineChart size={24} />
                     </div>
@@ -133,7 +133,7 @@ export const Presentation = () => {
                     </p>
                   </div>
                   
-                  <div className="flex flex-col items-center text-center">
+                  <div className="flex flex-col items-center text-center transition-all duration-300 hover:transform hover:translate-y-[-5px]">
                     <div className="feature-icon mb-4">
                       <PieChart size={24} />
                     </div>
@@ -149,7 +149,7 @@ export const Presentation = () => {
                 <h3 className="text-2xl font-medium mb-6 text-center text-white">Как это работает?</h3>
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                   <div className="text-center">
-                    <div className="w-16 h-16 rounded-full bg-blue-900/40 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle">
+                    <div className="w-16 h-16 rounded-full bg-blue-900/40 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle workflow-icon">
                       <Phone className="text-brand-blue" />
                     </div>
                     <p className="text-sm text-gray-300">Звонок</p>
@@ -159,7 +159,7 @@ export const Presentation = () => {
                   <ArrowDown className="block md:hidden text-gray-600" />
                   
                   <div className="text-center">
-                    <div className="w-16 h-16 rounded-full bg-blue-900/40 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-100">
+                    <div className="w-16 h-16 rounded-full bg-blue-900/40 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-100 workflow-icon">
                       <FileText className="text-brand-blue" />
                     </div>
                     <p className="text-sm text-gray-300">Текст</p>
@@ -169,7 +169,7 @@ export const Presentation = () => {
                   <ArrowDown className="block md:hidden text-gray-600" />
                   
                   <div className="text-center">
-                    <div className="w-16 h-16 rounded-full bg-blue-900/40 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-200">
+                    <div className="w-16 h-16 rounded-full bg-blue-900/40 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-200 workflow-icon">
                       <Brain className="text-brand-blue" />
                     </div>
                     <p className="text-sm text-gray-300">AI-анализ</p>
@@ -179,7 +179,7 @@ export const Presentation = () => {
                   <ArrowDown className="block md:hidden text-gray-600" />
                   
                   <div className="text-center">
-                    <div className="w-16 h-16 rounded-full bg-blue-900/40 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-300">
+                    <div className="w-16 h-16 rounded-full bg-blue-900/40 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-300 workflow-icon">
                       <Database className="text-brand-blue" />
                     </div>
                     <p className="text-sm text-gray-300">Данные в CRM</p>
@@ -189,7 +189,7 @@ export const Presentation = () => {
                   <ArrowDown className="block md:hidden text-gray-600" />
                   
                   <div className="text-center">
-                    <div className="w-16 h-16 rounded-full bg-blue-900/40 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-400">
+                    <div className="w-16 h-16 rounded-full bg-blue-900/40 flex items-center justify-center mx-auto mb-3 animate-bounce-subtle animate-delay-400 workflow-icon">
                       <TrendingUp className="text-brand-blue" />
                     </div>
                     <p className="text-sm text-gray-300">Рост продаж</p>
@@ -272,7 +272,7 @@ export const Presentation = () => {
                 </div>
                 
                 <div className="text-center mb-8">
-                  <p className="text-3xl font-bold text-brand-blue">
+                  <p className="text-3xl font-bold text-brand-blue hover:text-white transition-colors duration-300">
                     +15-30% к выполнению плана
                   </p>
                 </div>
@@ -281,7 +281,7 @@ export const Presentation = () => {
                   <p className="text-xl mb-6 text-gray-300">Свяжитесь со мной:</p>
                   <div className="flex flex-col items-center">
                     <h4 className="text-xl font-medium text-white">Ряснов Виктор</h4>
-                    <a href="tel:+79150862516" className="text-brand-blue hover:underline mt-2">+7 (915) 086-25-16</a>
+                    <a href="tel:+79150862516" className="text-brand-blue hover:underline hover:text-white transition-colors duration-300 mt-2">+7 (915) 086-25-16</a>
                   </div>
                 </div>
               </div>

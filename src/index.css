@@ -63,7 +63,11 @@
   }
   
   .glass-card {
-    @apply bg-black/50 backdrop-blur-lg border border-white/10 shadow-lg;
+    @apply bg-black/50 backdrop-blur-lg border border-white/10 shadow-lg transition-all duration-300;
+  }
+  
+  .glass-card:hover {
+    @apply bg-black/60 border-blue-500/30 shadow-xl shadow-blue-500/10 transform scale-[1.02];
   }
   
   .slide-container {
@@ -84,12 +88,21 @@
   }
 
   .feature-icon {
-    @apply text-brand-blue bg-blue-900/40 p-2 rounded-lg inline-flex items-center justify-center;
+    @apply text-brand-blue bg-blue-900/40 p-2 rounded-lg inline-flex items-center justify-center transition-all duration-300;
     box-shadow: 0 0 20px rgba(70, 145, 255, 0.35);
   }
   
+  .glass-card:hover .feature-icon {
+    @apply bg-blue-900/60;
+    box-shadow: 0 0 30px rgba(70, 145, 255, 0.5);
+  }
+  
   .list-check li {
-    @apply flex items-start gap-3 mb-4;
+    @apply flex items-start gap-3 mb-4 transition-transform duration-300;
+  }
+  
+  .list-check li:hover {
+    @apply transform translate-x-1;
   }
   
   .animate-delay-100 {
@@ -118,5 +131,14 @@
   
   .text-gradient {
     @apply bg-gradient-to-br from-white via-white/95 to-white/80 bg-clip-text text-transparent;
+  }
+  
+  /* Hover animations for workflow icons */
+  .workflow-icon {
+    @apply transition-all duration-300;
+  }
+  
+  .workflow-icon:hover {
+    @apply transform scale-110;
   }
 }
