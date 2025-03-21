@@ -1,3 +1,4 @@
+
 import React, { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { 
@@ -14,7 +15,8 @@ import {
   Star,
   BarChart3,
   LineChart,
-  PieChart
+  PieChart,
+  Send
 } from 'lucide-react';
 
 export const Presentation = () => {
@@ -278,10 +280,20 @@ export const Presentation = () => {
                 
                 <div className="text-center">
                   <p className="text-xl mb-6">Свяжитесь со мной:</p>
-                  <div className="flex flex-col items-center">
-                    <h4 className="text-xl font-medium">Ряснов Виктор</h4>
-                    <a href="tel:+79150862516" className="text-brand-blue hover:underline mt-2">+7 (915) 086-25-16</a>
-                  </div>
+                  <a 
+                    href="https://t.me/rvviktor" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-block"
+                  >
+                    <Button 
+                      className="bg-[#0088cc] hover:bg-[#0077b5] text-white gap-2 px-6 py-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105"
+                      size="lg"
+                    >
+                      <Send className="w-5 h-5" />
+                      <span className="font-medium">Telegram @rvviktor</span>
+                    </Button>
+                  </a>
                 </div>
               </div>
             </div>
