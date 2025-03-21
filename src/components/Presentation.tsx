@@ -30,41 +30,47 @@ import {
   Pie,
   Cell,
   AreaChart,
-  Area
+  Area,
+  LineChart as ReLineChart,
+  Line
 } from 'recharts';
 import { ChartContainer, ChartTooltipContent } from '@/components/ui/chart';
 
-const salesPerformanceData = [
-  { name: 'Янв', plan: 100, actual: 120 },
-  { name: 'Фев', plan: 110, actual: 130 },
-  { name: 'Мар', plan: 120, actual: 140 },
-  { name: 'Апр', plan: 130, actual: 145 },
-  { name: 'Май', plan: 140, actual: 160 },
-  { name: 'Июн', plan: 150, actual: 190 },
+const salesOverviewData = [
+  { name: 'Янв', value: 42000 },
+  { name: 'Фев', value: 36000 },
+  { name: 'Мар', value: 54000 },
+  { name: 'Апр', value: 48000 },
+  { name: 'Май', value: 60000 },
+  { name: 'Июн', value: 72000 },
 ];
 
-const callAnalyticsData = [
-  { name: 'Пн', calls: 45, conversions: 12 },
-  { name: 'Вт', calls: 55, conversions: 15 },
-  { name: 'Ср', calls: 60, conversions: 18 },
-  { name: 'Чт', calls: 52, conversions: 14 },
-  { name: 'Пт', calls: 65, conversions: 20 },
+const salesByCategoryData = [
+  { name: 'Категория А', value: 35 },
+  { name: 'Категория Б', value: 25 },
+  { name: 'Категория В', value: 20 },
+  { name: 'Категория Г', value: 15 },
+  { name: 'Другое', value: 5 },
 ];
 
-const scriptUsageData = [
-  { name: 'Соблюдено', value: 68, color: '#4ade80' },
-  { name: 'Частично', value: 22, color: '#facc15' },
-  { name: 'Нарушено', value: 10, color: '#f87171' },
+const salesTeamData = [
+  { name: 'Иванов', value: 94 },
+  { name: 'Петров', value: 87 },
+  { name: 'Сидоров', value: 78 },
+  { name: 'Козлов', value: 92 },
+  { name: 'Смирнова', value: 96 },
 ];
 
-const objectionHandlingData = [
-  { month: 'Янв', score: 65 },
-  { month: 'Фев', score: 70 },
-  { month: 'Мар', score: 75 },
-  { month: 'Апр', score: 82 },
-  { month: 'Май', score: 90 },
-  { month: 'Июн', score: 95 },
+const conversionRateData = [
+  { name: 'Янв', rate: 18 },
+  { name: 'Фев', rate: 22 },
+  { name: 'Мар', rate: 24 },
+  { name: 'Апр', rate: 25 },
+  { name: 'Май', rate: 30 },
+  { name: 'Июн', rate: 32 },
 ];
+
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8'];
 
 export const Presentation = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -269,35 +275,33 @@ export const Presentation = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mb-8">
                 <div className="glass-card rounded-2xl p-4 animate-fade-in animate-delay-200">
-                  <h3 className="text-xl font-medium mb-4 px-2">Выполнение плана продаж</h3>
+                  <h3 className="text-xl font-medium mb-4 px-2">Обзор продаж по месяцам</h3>
                   <div className="h-[300px]">
                     <ResponsiveContainer width="100%" height="100%">
                       <BarChart
-                        data={salesPerformanceData}
+                        data={salesOverviewData}
                         margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
                       >
                         <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                         <XAxis dataKey="name" />
                         <YAxis />
                         <Tooltip content={<CustomTooltip />} />
-                        <Legend />
-                        <Bar dataKey="plan" name="План" fill="#64748b" />
-                        <Bar dataKey="actual" name="Факт" fill="#3b82f6" />
+                        <Bar dataKey="value" name="Объем продаж (₽)" fill="#3b82f6" />
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
                   <p className="text-sm text-brand-gray-600 mt-2 px-2">
-                    Сравнение плана и фактических продаж по месяцам
+                    Динамика объема продаж за последние 6 месяцев
                   </p>
                 </div>
                 
                 <div className="glass-card rounded-2xl p-4 animate-fade-in animate-delay-300">
-                  <h3 className="text-xl font-medium mb-4 px-2">Соблюдение скрипта</h3>
+                  <h3 className="text-xl font-medium mb-4 px-2">Продажи по категориям</h3>
                   <div className="h-[300px]">
                     <ResponsiveContainer width="100%" height="100%">
                       <RePieChart>
                         <Pie
-                          data={scriptUsageData}
+                          data={salesByCategoryData}
                           cx="50%"
                           cy="50%"
                           innerRadius={70}
@@ -307,8 +311,8 @@ export const Presentation = () => {
                           dataKey="value"
                           label={({name, percent}) => `${name} ${(percent * 100).toFixed(0)}%`}
                         >
-                          {scriptUsageData.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={entry.color} />
+                          {salesByCategoryData.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                           ))}
                         </Pie>
                         <Tooltip content={<CustomTooltip />} />
@@ -316,57 +320,57 @@ export const Presentation = () => {
                     </ResponsiveContainer>
                   </div>
                   <p className="text-sm text-brand-gray-600 mt-2 px-2">
-                    Процентное соотношение соблюдения скриптов менеджерами
+                    Распределение продаж по категориям товаров
                   </p>
                 </div>
                 
                 <div className="glass-card rounded-2xl p-4 animate-fade-in animate-delay-400">
-                  <h3 className="text-xl font-medium mb-4 px-2">Статистика звонков</h3>
+                  <h3 className="text-xl font-medium mb-4 px-2">Эффективность менеджеров</h3>
                   <div className="h-[300px]">
                     <ResponsiveContainer width="100%" height="100%">
                       <BarChart
-                        data={callAnalyticsData}
-                        margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+                        data={salesTeamData}
+                        layout="vertical"
+                        margin={{ top: 10, right: 30, left: 60, bottom: 0 }}
                       >
                         <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                        <XAxis dataKey="name" />
-                        <YAxis />
+                        <XAxis type="number" domain={[0, 100]} />
+                        <YAxis dataKey="name" type="category" />
                         <Tooltip content={<CustomTooltip />} />
-                        <Legend />
-                        <Bar dataKey="calls" name="Звонки" fill="#a78bfa" />
-                        <Bar dataKey="conversions" name="Успешные" fill="#4ade80" />
+                        <Bar dataKey="value" name="Эффективность (%)" fill="#a78bfa" />
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
                   <p className="text-sm text-brand-gray-600 mt-2 px-2">
-                    Количество звонков и успешных сделок по дням недели
+                    Рейтинг эффективности менеджеров по продажам
                   </p>
                 </div>
                 
                 <div className="glass-card rounded-2xl p-4 animate-fade-in animate-delay-500">
-                  <h3 className="text-xl font-medium mb-4 px-2">Работа с возражениями</h3>
+                  <h3 className="text-xl font-medium mb-4 px-2">Конверсия звонков</h3>
                   <div className="h-[300px]">
                     <ResponsiveContainer width="100%" height="100%">
-                      <AreaChart
-                        data={objectionHandlingData}
+                      <ReLineChart
+                        data={conversionRateData}
                         margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
                       >
                         <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                        <XAxis dataKey="month" />
-                        <YAxis domain={[50, 100]} />
+                        <XAxis dataKey="name" />
+                        <YAxis domain={[0, 40]} />
                         <Tooltip content={<CustomTooltip />} />
-                        <Area 
+                        <Line 
                           type="monotone" 
-                          dataKey="score" 
-                          name="Оценка" 
+                          dataKey="rate" 
+                          name="Конверсия (%)" 
                           stroke="#0ea5e9" 
-                          fill="rgba(14, 165, 233, 0.2)" 
+                          activeDot={{ r: 8 }}
+                          strokeWidth={2}
                         />
-                      </AreaChart>
+                      </ReLineChart>
                     </ResponsiveContainer>
                   </div>
                   <p className="text-sm text-brand-gray-600 mt-2 px-2">
-                    Динамика навыка работы с возражениями по AI-оценке
+                    Динамика конверсии звонков в продажи
                   </p>
                 </div>
               </div>
@@ -495,3 +499,5 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 };
 
 export default Presentation;
+
+
