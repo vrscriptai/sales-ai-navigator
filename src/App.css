@@ -1,3 +1,4 @@
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -40,3 +41,29 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Chart styling */
+.recharts-wrapper {
+  margin: 0 auto;
+}
+
+.recharts-legend-item-text {
+  font-size: 0.75rem;
+}
+
+.recharts-cartesian-axis-tick-value {
+  font-size: 0.7rem;
+}
+
+.list-check {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.list-check li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+

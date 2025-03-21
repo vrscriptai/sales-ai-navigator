@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { 
@@ -18,6 +17,54 @@ import {
   PieChart,
   Send
 } from 'lucide-react';
+import { 
+  BarChart, 
+  Bar, 
+  XAxis, 
+  YAxis, 
+  CartesianGrid, 
+  Tooltip, 
+  Legend, 
+  ResponsiveContainer,
+  PieChart as RePieChart,
+  Pie,
+  Cell,
+  AreaChart,
+  Area
+} from 'recharts';
+import { ChartContainer, ChartTooltipContent } from '@/components/ui/chart';
+
+const salesPerformanceData = [
+  { name: 'Янв', plan: 100, actual: 120 },
+  { name: 'Фев', plan: 110, actual: 130 },
+  { name: 'Мар', plan: 120, actual: 140 },
+  { name: 'Апр', plan: 130, actual: 145 },
+  { name: 'Май', plan: 140, actual: 160 },
+  { name: 'Июн', plan: 150, actual: 190 },
+];
+
+const callAnalyticsData = [
+  { name: 'Пн', calls: 45, conversions: 12 },
+  { name: 'Вт', calls: 55, conversions: 15 },
+  { name: 'Ср', calls: 60, conversions: 18 },
+  { name: 'Чт', calls: 52, conversions: 14 },
+  { name: 'Пт', calls: 65, conversions: 20 },
+];
+
+const scriptUsageData = [
+  { name: 'Соблюдено', value: 68, color: '#4ade80' },
+  { name: 'Частично', value: 22, color: '#facc15' },
+  { name: 'Нарушено', value: 10, color: '#f87171' },
+];
+
+const objectionHandlingData = [
+  { month: 'Янв', score: 65 },
+  { month: 'Фев', score: 70 },
+  { month: 'Мар', score: 75 },
+  { month: 'Апр', score: 82 },
+  { month: 'Май', score: 90 },
+  { month: 'Июн', score: 95 },
+];
 
 export const Presentation = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -25,7 +72,7 @@ export const Presentation = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleNextSlide = () => {
-    if (currentSlide < 1) {
+    if (currentSlide < 2) {
       setCurrentSlide(currentSlide + 1);
       slidesRef.current[currentSlide + 1]?.scrollIntoView({ behavior: 'smooth' });
     }
@@ -53,7 +100,7 @@ export const Presentation = () => {
           variant="outline"
           className="rounded-full h-14 w-14 glass-card flex items-center justify-center"
           onClick={handleNextSlide}
-          disabled={currentSlide === 1}
+          disabled={currentSlide === 2}
         >
           <ArrowDown className="rotate-270" />
         </Button>
@@ -208,6 +255,132 @@ export const Presentation = () => {
         >
           <div className="max-w-6xl mx-auto w-full">
             <div className="flex flex-col items-center justify-center min-h-[80vh]">
+              <div className="overflow-hidden mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold text-center animate-slide-down">
+                  Визуализация <span className="text-brand-blue">аналитики</span>
+                </h2>
+              </div>
+              
+              <div className="overflow-hidden mb-8">
+                <p className="text-xl text-center text-brand-gray-600 animate-slide-down animate-delay-100">
+                  Примеры дашбордов и отчетов, которые создает ScriptAI
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mb-8">
+                <div className="glass-card rounded-2xl p-4 animate-fade-in animate-delay-200">
+                  <h3 className="text-xl font-medium mb-4 px-2">Выполнение плана продаж</h3>
+                  <div className="h-[300px]">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart
+                        data={salesPerformanceData}
+                        margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip content={<CustomTooltip />} />
+                        <Legend />
+                        <Bar dataKey="plan" name="План" fill="#64748b" />
+                        <Bar dataKey="actual" name="Факт" fill="#3b82f6" />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                  <p className="text-sm text-brand-gray-600 mt-2 px-2">
+                    Сравнение плана и фактических продаж по месяцам
+                  </p>
+                </div>
+                
+                <div className="glass-card rounded-2xl p-4 animate-fade-in animate-delay-300">
+                  <h3 className="text-xl font-medium mb-4 px-2">Соблюдение скрипта</h3>
+                  <div className="h-[300px]">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <RePieChart>
+                        <Pie
+                          data={scriptUsageData}
+                          cx="50%"
+                          cy="50%"
+                          innerRadius={70}
+                          outerRadius={90}
+                          fill="#8884d8"
+                          paddingAngle={5}
+                          dataKey="value"
+                          label={({name, percent}) => `${name} ${(percent * 100).toFixed(0)}%`}
+                        >
+                          {scriptUsageData.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={entry.color} />
+                          ))}
+                        </Pie>
+                        <Tooltip content={<CustomTooltip />} />
+                      </RePieChart>
+                    </ResponsiveContainer>
+                  </div>
+                  <p className="text-sm text-brand-gray-600 mt-2 px-2">
+                    Процентное соотношение соблюдения скриптов менеджерами
+                  </p>
+                </div>
+                
+                <div className="glass-card rounded-2xl p-4 animate-fade-in animate-delay-400">
+                  <h3 className="text-xl font-medium mb-4 px-2">Статистика звонков</h3>
+                  <div className="h-[300px]">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart
+                        data={callAnalyticsData}
+                        margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip content={<CustomTooltip />} />
+                        <Legend />
+                        <Bar dataKey="calls" name="Звонки" fill="#a78bfa" />
+                        <Bar dataKey="conversions" name="Успешные" fill="#4ade80" />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                  <p className="text-sm text-brand-gray-600 mt-2 px-2">
+                    Количество звонков и успешных сделок по дням недели
+                  </p>
+                </div>
+                
+                <div className="glass-card rounded-2xl p-4 animate-fade-in animate-delay-500">
+                  <h3 className="text-xl font-medium mb-4 px-2">Работа с возражениями</h3>
+                  <div className="h-[300px]">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <AreaChart
+                        data={objectionHandlingData}
+                        margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                        <XAxis dataKey="month" />
+                        <YAxis domain={[50, 100]} />
+                        <Tooltip content={<CustomTooltip />} />
+                        <Area 
+                          type="monotone" 
+                          dataKey="score" 
+                          name="Оценка" 
+                          stroke="#0ea5e9" 
+                          fill="rgba(14, 165, 233, 0.2)" 
+                        />
+                      </AreaChart>
+                    </ResponsiveContainer>
+                  </div>
+                  <p className="text-sm text-brand-gray-600 mt-2 px-2">
+                    Динамика навыка работы с возражениями по AI-оценке
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          id="slide-2"
+          ref={(el) => (slidesRef.current[2] = el)}
+          className="slide bg-gradient-to-br from-gray-50 to-blue-50 p-8"
+        >
+          <div className="max-w-6xl mx-auto w-full">
+            <div className="flex flex-col items-center justify-center min-h-[80vh]">
               <div className="overflow-hidden mb-8">
                 <h2 className="text-4xl md:text-6xl font-bold text-center animate-slide-down">
                   Почему <span className="text-brand-blue">Script</span>?
@@ -302,6 +475,23 @@ export const Presentation = () => {
       </div>
     </div>
   );
+};
+
+const CustomTooltip = ({ active, payload, label }: any) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="bg-white p-3 border border-gray-200 rounded-md shadow-md">
+        <p className="font-medium">{label}</p>
+        {payload.map((entry: any, index: number) => (
+          <p key={`item-${index}`} style={{ color: entry.color }}>
+            {entry.name}: {entry.value}
+          </p>
+        ))}
+      </div>
+    );
+  }
+
+  return null;
 };
 
 export default Presentation;
