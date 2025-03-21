@@ -20,7 +20,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Montserrat', 'system-ui', 'sans-serif'],
+				sans: ['SF Pro Display', 'Inter', 'system-ui', 'sans-serif'],
 				mono: ['SF Mono', 'monospace'],
 			},
 			colors: {
@@ -68,8 +68,8 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				brand: {
-					emerald: '#10b981',
-					teal: '#14b8a6',
+					blue: '#0070f3',
+					purple: '#8B5CF6',
 					gray: {
 						50: '#f9fafb',
 						100: '#f3f4f6',
